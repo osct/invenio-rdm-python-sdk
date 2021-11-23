@@ -51,7 +51,7 @@ A class and methods to setup the endpoint of a InvenioRDM instance and configure
 
 #### Sample API
 
-```python=
+```python
 import Repository from inveniordm_sdk
 
 infn_repo = Repository(url="https://www.openaccessrepository.it")
@@ -78,7 +78,7 @@ The `Record` class will have properties that map each *key* returned by the JSON
 
 #### Sample APIs
 
-```python=
+```python
 r = infn_repo.get_record(id="dbn00-8d609")
 #r2 = infn_repo.get_record(doi="10.81088/h8ry5-12745")
 # r is of type Record
@@ -119,7 +119,7 @@ A set of classes/methods/enums for defining a new record and it's metadata. Enum
 
 #### Sample API 
 
-```python=
+```python
 new_record = Record()
 author = Creator(
     name = "Antonio",
@@ -161,7 +161,7 @@ This API will allow to upload draft file's content. This API will hide the under
 
 #### Sample API 
 
-```python=
+```python
 new_record.files = [File("picture.jpg"), File("article.pdf"), File("test.zip")]
 for input_file in new_record.files
     with open(input_file.name, 'rb') as data:
@@ -178,7 +178,7 @@ This API will allow to retrieve all version of a record and to create a new vers
 
 #### Sample API
 
-```python=
+```python
 print(new_record.versions) # return a list of `Record`s
 new_record_v2 = Record(parent = new_record) # create and return a new record version
 ```
@@ -190,7 +190,7 @@ All queries will return a list of `Record`. A future implementation could provid
 
 #### Sample API
 
-```python=
+```python
 repository.search_by_fields(title="data science", resource_type="publication", version="v2")
 repository.search_all("open", "science", exclude="python").sort_by_pub_date()
 repository.search_any("open", "data", "Python").sort_by_title()
